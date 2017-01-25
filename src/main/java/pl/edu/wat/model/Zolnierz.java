@@ -2,25 +2,24 @@ package pl.edu.wat.model;
 
 public class Zolnierz {
 
-	private int id_zolnierza;
-	private String stopien;
-	private String imie;
-	private String nazwisko;
-        private String funkcja;
-        private int kompania;
-        private int pluton;
-        private int druzyna;
-        private String grupa_szkoleniowa;
-        private String wydzial;
-        private boolean l4;
-        private boolean szpital;
-        private boolean przepustka;
-        private boolean sluzba;
+    private int id_zolnierza;
+    private String stopien;
+    private String imie;
+    private String nazwisko;
+    private String funkcja;
+    private int kompania;
+    private int pluton;
+    private int druzyna;
+    private String grupa_szkoleniowa;
+    private String wydzial;
+    private boolean l4;
+    private boolean szpital;
+    private boolean przepustka;
+    private boolean sluzba;
 
-    
-	public Zolnierz(){
-		id_zolnierza=0;
-	}
+    public Zolnierz() {
+        id_zolnierza = 0;
+    }
 
     public Zolnierz(int id_zolnierza, String stopien, String imie, String nazwisko, String funkcja, int kompania, int pluton, int druzyna, String grupa_szkoleniowa, String wydzial, boolean l4, boolean szpital, boolean przepustka, boolean sluzba) {
         this.id_zolnierza = id_zolnierza;
@@ -38,36 +37,41 @@ public class Zolnierz {
         this.przepustka = przepustka;
         this.sluzba = sluzba;
     }
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id_zolnierza ^ (id_zolnierza >>> 32));
-		return result;
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof Zolnierz))
-			return false;
-		Zolnierz other = (Zolnierz) obj;
-		if (id_zolnierza != other.id_zolnierza)
-			return false;
-		return true;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id_zolnierza ^ (id_zolnierza >>> 32));
+        return result;
+    }
 
-	@Override
-	public String toString() {
-		return "Zolnierz [id=" + id_zolnierza + ", stopien=" + stopien + ", imie=" + imie +
-                        ", nazwisko=" + nazwisko + ", funkcja=" + funkcja + ", kompania=" + kompania + ", pluton=" + pluton 
-                        + ", druzyna=" + druzyna + ", wydzial=" + wydzial + ", l4=" + l4+", szpital=" + szpital+", sluzba=" + sluzba+", przepustka=" + przepustka+ "]";
-	}
-        public int getId_zolnierza() {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Zolnierz)) {
+            return false;
+        }
+        Zolnierz other = (Zolnierz) obj;
+        if (id_zolnierza != other.id_zolnierza) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Zolnierz [id=" + id_zolnierza + ", stopien=" + stopien + ", imie=" + imie
+                + ", nazwisko=" + nazwisko + ", funkcja=" + funkcja + ", kompania=" + kompania + ", pluton=" + pluton
+                + ", druzyna=" + druzyna + ", wydzial=" + wydzial + ", l4=" + l4 + ", szpital=" + szpital + ", sluzba=" + sluzba + ", przepustka=" + przepustka + "]";
+    }
+
+    public int getId_zolnierza() {
         return id_zolnierza;
     }
 
@@ -178,8 +182,5 @@ public class Zolnierz {
     public void setSluzba(boolean sluzba) {
         this.sluzba = sluzba;
     }
-        
-	
 
-	
 }
