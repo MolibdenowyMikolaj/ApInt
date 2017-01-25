@@ -1,0 +1,9 @@
+pl\edu\wat\controller\IndexController.class
+pl\edu\wat\controller\HelloWorldRestController.class
+pl\edu\wat\configuration\CORSFilter.class
+pl\edu\wat\configuration\HelloWorldConfiguration.class
+pl\edu\wat\service\UserServiceImpl.class
+pl\edu\wat\configuration\HelloWorldInitializer.class
+pl\edu\wat\service\UserService.class
+pl\edu\wat\model\Zolnierz.class
+pl\edu\wat\connection\MySQLConnection.class
