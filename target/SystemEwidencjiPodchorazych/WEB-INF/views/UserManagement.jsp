@@ -2,6 +2,47 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
+        <script type="text/javascript"
+        src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load("current", {packages: ["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                $.ajax({
+                    url: 'ajax.html',
+                    success: function (dane) {
+                        $('#result').html(dane);
+                        var array = JSON.parse(dane);
+                        var data = google.visualization.arrayToDataTable([
+                            ['Task', 'Liczba'],
+                            ['Obecni', array[0]],
+                            ['L4', array[1]],
+                            ['S³u¿ba', array[2]],
+                            ['Szpital', array[3]],
+                            ['Przepustka', array[4]]
+                        ]);
+                        var options = {
+                            title: 'Stan Podchor±¿ych',
+                            is3D: true,
+                            backgroundColor: '#DAE8E8',
+                            titleTextStyle: {
+                                fontSize: 30,
+                                italic: true
+                            }
+
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                        chart.draw(data, options);
+                    }
+                });
+
+            }
+        </script>
+        <script type="text/javascript">
+            var intervalId = 0;
+            intervalId = setInterval(drawChart, 1000);
+        </script>
         <title>SystemEwidencjiPodchorazych</title>  
         <style>
             .username.ng-valid {
@@ -26,15 +67,14 @@
 
         </style>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+        <link href="<c:url value='/static/css/app.css' />" rel="stylesheet">
     </head>
     <body ng-app="myApp" class="ng-cloak">
         <div class="fluid-container generic-container" ng-controller="UserController as ctrl">
             <div class="panel panel-default">
                 <div class="panel-heading"><span class="lead">System Ewidencji Podchor±¿ych </span></div>
                 <div class="formcontainer">
-                    <div id="donutchart" style="height: 400px;" ></div>
-                    
+                    <div id="donutchart" style="height: 500px; "  ></div>
                 </div>
 
             </div>
